@@ -1,0 +1,58 @@
+
+  h1 {
+    text-align: center;
+  }
+  
+  h3 {
+    text-align: center;
+  }
+
+  body {
+    font-family: Arial, sans-serif;
+    padding: 1em;
+    text-align: center;
+  }
+  
+  section {
+    padding: 1em 0;
+  }
+  
+  table {
+    border-collapse: collapse;
+    border: 2px solid #5D6063;
+    border-radius: 25px;
+    width: 70%;
+    box-sizing: border-box;
+    margin: 25px auto; /* Vertical  Horizontal */
+  }
+
+  thead {
+    background-color:aliceblue;
+    text-align: center;
+    font-weight: bold;
+  }
+ 
+  td, th {
+    border: 1px solid #dddddd;
+    text-align: center;
+    padding: 8px;
+  }
+  
+  tr:nth-child(even) {
+    background-color: whitesmoke;
+  }
+
+  .abnormal {
+    background-color: rgb(255, 179, 169);
+  }
+
+  .abnormal{
+    animation:blinkingText 1.2s infinite;
+}
+    @keyframes blinkingText{
+      0%{     color: #000;    }
+      49%{    color: #000; }
+      60%{    color: transparent; }
+      99%{    color:transparent;  }
+      100%{   color: #000;    }
+}
