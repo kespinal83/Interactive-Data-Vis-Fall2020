@@ -1,0 +1,39 @@
+svg {
+    margin-left: 80px;
+    color: whitesmoke;
+    font-family: 'Alata';
+
+  }
+
+  H1 {
+    text-align: center;
+    color: whitesmoke;
+    font-family: 'Alata';
+  }
+
+  H2 {
+    text-align: center;
+    color: whitesmoke;
+    font-family: 'Alata';
+  }
+
+  H3 {
+    text-align: center;
+    color: whitesmoke;
+    font-family: 'Alata';
+  }
+
+  p {
+    margin-left: 80px;
+    text-align: left;
+    color: whitesmoke;
+    max-width: 600px;
+    font-family: 'Alata';font-size: 16px;
+  }
+
+  html{
+    background-image: url("../data/GTR2.jpg");
+    background-size: cover;
+    height: 100%;
+    overflow: hidden;
+  }
