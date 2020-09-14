@@ -32,7 +32,7 @@ svg {
   }
 
   html{
-    background-image: url("../data/GTR2.jpg");
+    background-image: url("gtr2.jpg");
     background-size: cover;
     height: 100%;
     overflow: hidden;
