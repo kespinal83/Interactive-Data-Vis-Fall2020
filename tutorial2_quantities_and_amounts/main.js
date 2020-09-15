@@ -4,7 +4,7 @@ d3.csv("../data/gtrSales.csv", d3.autoType).then(data => { //passing in data to 
     const svg = d3.selectAll("#my-svg"), //reference svg div id
     width = +svg.attr('width'), // reference svg width in html
     height = +svg.attr('height'), // reference svg height in html
-    margin = ({top: 20, bottom: 40, left: 50, right: 20}), //margins in svg container
+    margin = ({top: 20, bottom: 40, left: 45, right: 50}), //margins in svg container
     innerWidth = width - margin.left - margin.right, //inner width in svg container
     innerHeight = height - margin.top - margin.bottom; //inner height in svg container
 
@@ -23,9 +23,9 @@ d3.csv("../data/gtrSales.csv", d3.autoType).then(data => { //passing in data to 
     .enter()
     .append("rect") //new rectangle
     .attr('y', d => yScale(d.year)) //creates multiple rows
+    .attr('x', margin.left) //margin to left causes graph to have x axis and move to left.
     .attr("width", d => xScale(d.sales)) //give rectangle width
     .attr("height", yScale.bandwidth()) //width of single bar
-//    .attr("fill", "steelblue") //Color of bars
     .attr("fill", "rgba(171,17,47, 0.6)") //Color of bars
 
     const text = svg
@@ -35,18 +35,21 @@ d3.csv("../data/gtrSales.csv", d3.autoType).then(data => { //passing in data to 
     .attr("class", "label") // text in the center of the bar
     .attr("y", d => yScale(d.year) + (yScale.bandwidth() / 2))
     .attr("x", d => xScale(d.sales))
+//    .attr("x", margin.right)
     .text(d => d.sales)
-    .attr("dx", "1.25em")
+    .attr("dx", "3.0em")
     .attr("fill", "white") //Color of bars
 
     svg
     .append("g")
-    .attr("transform","translate(0,450)") //This controls the horizontal position of the axis elements 
-    .call(d3.axisBottom(xScale));
+    .attr("transform","translate(45,450)") //This controls the horizontal position of the axis elements
+   .call(d3.axisBottom(xScale));
+//   .call(d3.axisBottom(margin.right));
 
     svg
     .append("g")
-    .attr("transform", "translate(35,0)")      // This controls the vertical position of the Axis elements
+    .attr("transform", "translate(25,0)") // This controls the vertical position of the Axis elements
     .call(d3.axisLeft(yScale));
+ //   .call(d3.axisLeft(margin.left));
 
 });
