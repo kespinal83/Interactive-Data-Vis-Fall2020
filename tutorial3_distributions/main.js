@@ -1,7 +1,7 @@
 /* CONSTANTS AND GLOBALS */
 const width = window.innerWidth * 0.7,
   height = window.innerHeight * 0.7,
-  margin = { top: 20, bottom: 50, left: 40, right: 40 },
+  margin = { top: 20, bottom: 50, left: 60, right: 40 },
   radius = 5;
 
 let svg;
@@ -94,12 +94,12 @@ const dot = svg.selectAll(".dot")
       .attr("cx", d => xScale(d["tatMin"]))
       .attr("cy", d => yScale(d["result"]))
       .attr("r", 7)
-      .style("opacity", 0.7)
+      .style("opacity", 0.3)
       .style("stroke", "white")
       .attr("fill", d => {
-        if (d.tatMin >= "240") return "#4B584F";
-        else if (d.tatMin >= "20" && d.tatMin <= "60") return "#788D66";
-        else return "#DCD19c";
+        if (d.tatMin > 240) return "#4B584F";
+        else if (d.tatMin <= 60) return "#FBE7DE";
+        else return "#DCD19C";
       })
       .attr("r", radius)
       .attr("cy", d => yScale(d.result))
@@ -108,14 +108,11 @@ const dot = svg.selectAll(".dot")
         enter
         .transition()
         .delay(function(d,i){return(i*3)})
-        .duration(5000)
+        .duration(4000)
         .attr("cx", d => xScale(d.tatMin))
-//      .attr("cx", function (d) { return x(d.tatMin); } ) 
-//      .attr("cy", function (d) { return y(d.result); } )
       ),
-    
-      update => update.call(update =>
-        // update selections -- all data elements that match with a `.dot` element
+
+        update => update.call(update =>
         update
           .transition()
           .duration(250)
@@ -124,16 +121,15 @@ const dot = svg.selectAll(".dot")
           .duration(250)
           .attr("stroke", "lightgrey")
       ),
-      exit =>
+        exit =>
         exit.call(exit =>
-          // exit selections -- all the `.dot` element that no longer match to HTML elements
           exit
             .transition()
             .delay(d => 50 * d.result)
             .duration(500)
             .attr("cx", width)
             .remove()
-      )
+      ),
   );
    
 }

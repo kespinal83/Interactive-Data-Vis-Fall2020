@@ -10,6 +10,9 @@
     font-family: 'Alata';
     align-self: center;
     margin-left: 160px;
+    background-size: cover;
+    height: 100%;
+    overflow: hidden;
 }  
 
   .axis-label {
@@ -52,7 +55,6 @@ label {
   font-family: 'Alata';
 }
 
-  .dot:hover {
-	  fill: #952F2F;
+.dot:hover {
+	  fill: #208d32;
 }
-
