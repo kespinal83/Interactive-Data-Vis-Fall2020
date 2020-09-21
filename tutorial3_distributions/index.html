@@ -1,14 +1,22 @@
 <!DOCTYPE html>
-  <head>
-    <meta charset="utf-8">
-    <title>Interactive Data Visualization Tutorial</title>
-    <link rel="stylesheet" href="./style.css">
-  </head>
-  <body>
-    <label for="dropdown">Filter Selection</label>
-    <select id="dropdown" name="dropdown"></select>
-    <div id="d3-container"> </div>
-    <script src="../lib/d3.js"></script>
-    <script src="main.js"></script>
-  </body>
+<head>
+  <meta charset="utf-8">
+  <title>Interactive Data Visualization Tutorial</title>
+  <link href='https://fonts.googleapis.com/css?family=Alata' rel="stylesheet">
+  <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+  <header>
+    <h1>Activated Partial Thromboplastin Time (aPTT)</h1>
+    <h2>Patient Care / Service Suggestive Correlation Scatterplot</h2>
+  </header>
+  <p>Synopsis</p>
+  <p>Activated Partial Thromboplastin Time (aPTT) is a screening test that helps evaluate a person's ability to appropriately form blood clots.  This scatterplot graph represents clinical and logistical dataset of aPTT specimens received from an Outpatient business line.  Depending on specified baselines, indicators may suggest potential logistical deficiencies and / or additional sensitivity of clinical abnormal values that would require additional monitoring of these specimens as part of the intake process.  Based on the 240 min time processing expectation from time where patient was drawn to time test has been processed by a clinical instrument, any aPTT processed after 240 mins is not meeting service goals and may potentially impact quality of clinical results and patient care.</p>
+  <P></P>
+  <label for="dropdown">Select a month</label>
+  <select id="dropdown" name="dropdown"></select>
+  <div id="d3-container"></div>
+  <script src="../../lib/d3.js"></script>
+  <script src="./main.js"></script>
+</body>
 </html>
