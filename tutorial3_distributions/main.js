@@ -108,7 +108,7 @@ const dot = svg.selectAll(".dot")
         enter
         .transition()
         .delay(function(d,i){return(i*3)})
-        .duration(4000)
+        .duration(5000)
         .attr("cx", d => xScale(d.tatMin))
       ),
 
