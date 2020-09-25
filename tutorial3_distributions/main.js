@@ -76,12 +76,42 @@ svg //add the yAxis
   .text("Result Value");
   draw();
 }
+
+var tooltip = d3.select("#d3-container")
+  .append("div")
+  .style("opacity", 0)
+  .attr("class", "tooltip")
+  .style("background-color", "white")
+  .style("border", "solid")
+  .style("border-width", "1px")
+  .style("border-radius", "5px")
+  .style("padding", "10px")
+
+var mouseover = function(d) {
+  tooltip
+    .style("opacity", 1)
+}
+
+var mousemove = function(d) {
+  tooltip
+    .html("The exact value of<br>Specimen ID is: " + d.specimenID + d.result)
+    .style("left", (d3.mouse(this)[0]+5) + "px") // Adjust the tooltip placement
+    .style("top", (d3.mouse(this)[1]) + "px")
+}
+
+var mouseleave = function(d) {
+  tooltip
+    .transition()
+    .duration(200)
+    .style("opacity", 0)
+}
+
 function draw() {
 
 let filteredData = state.data
   if (state.selection !== "All") {
     filteredData = state.data.filter(d => d.monthOrder === state.selection)
-  }
+}
 
 console.log(filteredData)
 
@@ -104,16 +134,17 @@ const dot = svg.selectAll(".dot")
       .attr("r", radius)
       .attr("cy", d => yScale(d.result))
       .attr("cx", d => margin.left) // initial value - to be transitioned
-      .call(enter =>
-        enter
+      .on("mouseover", mouseover)
+      .on("mousemove", mousemove)
+      .on("mouseleave", mouseleave)
+      .call(enter => enter
         .transition()
         .delay(function(d,i){return(i*3)})
         .duration(5000)
         .attr("cx", d => xScale(d.tatMin))
       ),
 
-        update => update.call(update =>
-        update
+        update => update.call(update => update
           .transition()
           .duration(250)
           .attr("stroke", "black")
@@ -121,15 +152,14 @@ const dot = svg.selectAll(".dot")
           .duration(250)
           .attr("stroke", "lightgrey")
       ),
-        exit =>
-        exit.call(exit =>
-          exit
+        exit => exit.call(exit => exit
             .transition()
             .delay(d => 50 * d.result)
             .duration(500)
             .attr("cx", width)
             .remove()
+
       ),
-  );
-   
-}
+    );
+        }
+

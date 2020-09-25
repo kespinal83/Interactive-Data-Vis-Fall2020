@@ -6,6 +6,7 @@
 }
 
   .d3-container {
+    position: relative;
     color: #f5f5f5;
     font-family: 'Alata';
     margin-left: 200px;
@@ -13,6 +14,11 @@
     text-align: center;
 }  
 
+  .tooltip {
+    position: absolute;
+    color: #4B584F;
+
+  }
   svg {
     color: #f5f5f5;
     font-family: 'Alata';
