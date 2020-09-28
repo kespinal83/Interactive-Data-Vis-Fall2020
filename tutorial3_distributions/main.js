@@ -137,7 +137,7 @@ const dot = svg.selectAll(".dot")
       .on("mouseover", mouseover)
       .on("mousemove", mousemove)
       .on("mouseleave", mouseleave)
-      .call(enter => enter
+      .call(enter => enter  //animation code starts
         .transition()
         .delay(function(d,i){return(i*3)})
         .duration(5000)
