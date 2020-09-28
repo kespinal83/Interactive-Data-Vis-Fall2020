@@ -1,4 +1,3 @@
-/* CONSTANTS AND GLOBALS */
 const width = window.innerWidth * 0.7,
   height = window.innerHeight * 0.7,
   margin = { top: 20, bottom: 50, left: 60, right: 40 },
@@ -18,9 +17,9 @@ d3.json("../data/data.json", d3.autoType).then(raw_data => {
   state.data = raw_data;
   console.log("state", state)
   init();
-});
+}); //first time working with json - Idea!! auto generate dynamic json file should create and allow for realtime data. 
 
-function init() {
+function init() {// dropdown function
 
 const selectElement = d3.select("#dropdown").on("change", function() {
   state.selection = this.value
@@ -29,9 +28,9 @@ const selectElement = d3.select("#dropdown").on("change", function() {
   draw();
 });
 
-selectElement
+selectElement //dropdown functions
   .selectAll("option")
-    .data(["All", "September", "August", "July"])  //Wow make sure your data has no hidden spaces or padding
+    .data(["All", "September", "August", "July"])  //Wow!! Make sure your data is clean - has no hidden spaces or padding.  This drove me nuts as data would not qualify due to space after value.
   .join("option")
     .attr("value", d => d)
     .text(d => d);
@@ -52,7 +51,7 @@ yScale = d3.scaleLinear()
 const xAxis = d3.axisBottom(xScale);
 const yAxis = d3.axisLeft(yScale);
 
-svg // add the xAxis
+svg // addition of the xAxis and its attributes
   .append("g")
   .attr("class", "myX-axis")
   .attr("transform", `translate(0,${height - margin.bottom})`)
@@ -63,7 +62,7 @@ svg // add the xAxis
   .attr("dy", "3em")
   .text("Turnaround Time Metrics (Collection to Completed (minutes))");
 
-svg //add the yAxis
+svg //addition of the yAxis and its attributes
   .append("g")
   .attr("class", "myY-axis")
   .attr("transform", `translate(${margin.left},0)`)
@@ -77,24 +76,25 @@ svg //add the yAxis
   draw();
 }
 
-var tooltip = d3.select("#d3-container")
+var tooltip = d3.select("#d3-container")  //first time - remember to add css #ref .tooltip
   .append("div")
   .style("opacity", 0)
   .attr("class", "tooltip")
-  .style("background-color", "white")
-  .style("border", "solid")
-  .style("border-width", "1px")
-  .style("border-radius", "5px")
-  .style("padding", "10px")
+//  .style("background-color", "white")  Removing the next set of .styles = background for tooltip.  I prefer transparent to give more fluid / modern look.
+//  .style("border", "solid")
+//  .style("border-width", "1px")
+//  .style("border-radius", "5px")
+//  .style("padding", "10px")
 
 var mouseover = function(d) {
   tooltip
     .style("opacity", 1)
+    div.style("display", "inline")
 }
 
 var mousemove = function(d) {
   tooltip
-    .html("The exact value of<br>Specimen ID is: " + d.specimenID + d.result)
+    .html("The exact value of<br>Specimen ID is: " + d.specimenID , "and its result value " + d.result) //input value from table based on selection
     .style("left", (d3.mouse(this)[0]+5) + "px") // Adjust the tooltip placement
     .style("top", (d3.mouse(this)[1]) + "px")
 }

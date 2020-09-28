@@ -16,7 +16,9 @@
 
   .tooltip {
     position: absolute;
-    color: #4B584F;
+    color: #f5f5f5;
+    font-family: 'Alata';
+    font-size: 14px;
 
   }
   svg {
