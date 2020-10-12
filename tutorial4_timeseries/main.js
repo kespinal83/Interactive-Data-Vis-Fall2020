@@ -1,107 +1,185 @@
-/* CONSTANTS AND GLOBALS */
 const width = window.innerWidth * 0.7,
   height = window.innerHeight * 0.7,
-  margin = { top: 20, bottom: 50, left: 60, right: 40 },
-  radius = 5;
+  margin = { top: 20, bottom: 20, left: 40, right: 20 },
+  radius = 4, time = 1500,
+//  default_selection = "Dataset1";
+  default_selection = "";
 
-// these variables allow us to access anything we manipulate in init() but need access to in draw().
-// All these variables are empty before we assign something to them.
-let svg;
-let xScale;
-let yScale;
-let lineFunc;
+let svg
+let xScale
+let yScale
+let yAxis;
 
-/* APPLICATION STATE */
-let state = {
-  data: [],
-  selection: "United States",
-};
+//let state = {data: [], selectedAnalysis: "Dataset1"};
+let state = {data: [], selectedAnalysis: ""};
 
-/* LOAD DATA */
-// + SET YOUR DATA PATH
-d3.csv("../data/populationOverTime.csv", d => ({
+d3.csv("../data/annualData.csv", d => ({
   year: new Date(d.Year, 0, 1),
-  country: d.Entity,
-  population: +d.Population,
-})).then(raw_data => {
-  console.log("raw_data", raw_data);
-  state.data = raw_data;
-  init();
-});
+  analysis_: d.Analysis,
+  mean: +d.Mean}))
+    .then(data => {
+      console.log("data", data)
+      state.data = data
+      init()});
 
-/* INITIALIZING FUNCTION */
-// this will be run *one time* when the data finishes loading in
 function init() {
+  xScale = d3
+    .scaleTime()
+    .domain(d3.extent(state.data, d => d.year))
+    .range([margin.left, width - margin.right])
+    .nice();
 
-  const selectElement = d3.select("#dropdown").on("change", function() {
-    // `this` === the selectElement
-    // 'this.value' holds the dropdown value a user just selected
-    state.selection = this.value; // + UPDATE STATE WITH YOUR SELECTED VALUE
-    console.log("new value is", this.value);
-    draw(); // re-draw the graph based on this new selection
-  });
+  yScale = d3
+    .scaleLinear()
+    .domain([0, d3.max(state.data, d => d.mean)])
+    .range([height - margin.bottom, margin.top])
+    .nice();
 
-  // add in dropdown options from the unique values in the data
+const xAxis = d3.axisBottom(xScale);
+const yAxis = d3.axisLeft(yScale);
+  
+const selectElement = d3.select("#dropdown")
+    .on("change", function() {
+      console.log("new selected entity is", this.value);
+      state.selectedAnalysis = this.value;
+      draw()
+    });
+  
   selectElement
     .selectAll("option")
-    .data([...new Set(state.data.map(d => d['country']))])
+    .data([...Array.from(new Set(state.data.map(d => d.analysis_))),
+      default_selection])
     .join("option")
     .attr("value", d => d)
     .text(d => d);
 
-  selectElement.property("value", "United States")
+  selectElement.property("value", default_selection);
 
-  // create an svg element in our main `d3-container` element
   svg = d3
     .select("#d3-container")
     .append("svg")
     .attr("width", width)
     .attr("height", height);
 
-  xScale = d3
-    .scaleTime()
-    .domain(d3.extent(state.data, d => d.year))
-    .range([margin.left, width - margin.right]);
+  svg
+  .append("g")
+  .attr("class", "myX-axis")
+  .attr("transform", `translate(0,${height - margin.bottom})`)
+  .call(xAxis)
+  .append("text")
+  .attr("class", "axis-label")
+  .attr("x", "50%")
+  .attr("dy", "3em")
+  .text("Year");
+  
+  svg //addition of the yAxis and its attributes
+  .append("g")
+  .attr("class", "myY-axis")
+  .attr("transform", `translate(${margin.left},0)`)
+  .call(yAxis)
+  .append("text")
+  .attr("class", "axis-label")
+  .attr("y", "50%")
+  .attr("dx", "-3em")
+  .attr("writing-mode", "vertical-rl")
+  .text("Mean Mockup Values");
 
-  yScale = d3
-    .scaleLinear()
-    .domain([0, d3.max(state.data, d => d.population)])
-    .range([height - margin.bottom, margin.top]);
+    var areaGradient = svg.append("defs")
+    .append("linearGradient")
+    .attr("id","areaGradient")
+    .attr("x1", "0%").attr("y1", "0%")
+    .attr("x2", "0%").attr("y2", "100%");
 
-  lineFunc = d3.line()
-    .x(d => xScale(d.year))
-    .y(d => yScale(d.population));
+    areaGradient.append("stop")
+    .attr("offset", "0%")
+    .attr("stop-color", "#595a6d")
+    .attr("stop-opacity", .9);
 
-  draw(); // calls the draw function
+    areaGradient.append("stop")
+    .attr("offset", "90%")
+    .attr("stop-color", "#7e8798")
+    .attr("stop-opacity", 0);
+
+  draw()
 }
 
-/* DRAW FUNCTION */
-// we call this everytime there is an update to the data/state
 function draw() {
-  
   let filteredData = [];
-  if (state.selection !== null) {
-    filteredData = state.data.filter(d => d.country === state.selection);
-  }
-  // console.log(state.selection, lineFunc(filteredData))
-  const line = svg.selectAll("path.trend")
-    .data([filteredData])
-    .join(enter => 
-      enter
-        .append("path")
-        .attr("class", "trend")
-        .attr("opacity", 0)
-        .call(sel => sel
-          .transition()
-          .duration(1000)
-          .attr("opacity", 1)
-          .attr("d", d => lineFunc(d))),
-      update => update
-        .call(sel => sel
-        .transition()
-        .duration(1000)
-        .attr("d", d => lineFunc(d))),
-      exit => exit.remove()
-    )
+    if (state.selectedAnalysis !== null) {
+      filteredData = state.data.filter(d => d.analysis_ === state.selectedAnalysis)
+    }
 
+  yScale.domain([0, d3.max(filteredData, d => d.mean)]);
+
+  const lineFunc = d3
+    .area()
+    .x(d => xScale(d.year))
+    .y(d => yScale(d.mean))
+    .y1(yScale(0));
+  
+  const dot = svg
+    .selectAll(".dot")
+    .data(filteredData, d => d.year)
+    .join(
+      enter =>
+        enter
+          .append("circle")
+          .attr("class", "dot")
+          .attr("r", radius)
+          .attr("cy", d => yScale(d.mean)) 
+          .attr("cx", d => xScale(d.year))
+          .attr("fill", "#d7a29e")
+          .attr("stroke", "#e8d8bf")
+          .attr("stroke-width", 1)
+          .on("mouseover", function (d) {
+            d3.select(this)
+              .transition()
+              .duration(time)
+              .attr("r", 3*radius)
+            div.transition()
+              .duration(time)
+              .style("opacity", .8)
+          })
+    
+          .on("mouseout", function () {
+            d3.select(this)
+              .transition()
+              .duration(time)
+              .attr("r", radius)
+            div.transition()
+              .duration(time)
+              .style("opacity", 0)
+          }),
+          update => update,
+      exit =>
+        exit.call(exit =>
+          exit.remove())
+    )
+    .call(
+      selection => 
+        selection
+          .transition()
+          .duration(time) 
+          .attr("cy", d => yScale(d.mean)) 
+    );
+
+  const line = svg
+    .selectAll("path.trend")
+    .data([filteredData])
+    .join(
+      enter => 
+        enter
+          .append("path")
+          //.attr("stroke", "#d7a29e")
+          //.attr("stroke-width", 1)
+          .style("fill", "url(#areaGradient)"),
+        update => update, 
+        exit => exit.remove()
+    )
+    .call(selection =>
+      selection
+        .transition() 
+        .duration(time)
+        .attr("d", d => lineFunc(d))  
+    )
 }

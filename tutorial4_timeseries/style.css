@@ -1,26 +1,56 @@
-body {
-    /* ref: https://fonts.google.com/specimen/Source+Sans+Pro?selection.family=Source+Sans+Pro */
-    font-family: "Source Sans Pro", sans-serif;
-    padding: 1em 3em;
-  }
-  
-  .dot {
-    cursor: pointer;
-    color: steelblue;
-    opacity: 0.5;
-  }
-  
-  .dot:hover {
-    fill: orange;
-  }
-  
-  .axis-label {
-    font-size: 14px;
-    fill: black;
-    text-anchor: middle;
-  }
-  
-  .trend {
-    fill: none;
-    stroke: black;
-  }
+html {
+  background-image: url("bg.jpg");
+  background-size: cover;
+  height: 100%;
+  overflow: hidden;
+}
+
+.d3-container {
+  position: relative;
+  color:#595a6d;
+  font-family: 'Nothing You Could Do';
+  margin-left: 200px;
+  width: 80%;
+  text-align: center;
+}  
+
+svg {
+  color: #595a6d;
+  font-family: 'Nothing You Could Do';
+  margin-left: 200px;
+  width: 80%;
+  text-align: center;
+}  
+
+.axis-label {
+  font-size: 10px;
+  fill: #595a6d;
+  text-anchor: middle;
+  font-family: 'Nothing You Could Do';
+}
+
+H1 {
+  text-align: center;
+  color: #595a6d;
+  font-family: 'Nothing You Could Do';
+  font-size: 26px;
+}
+
+H2 {
+  text-align: center;
+  color: #595a6d;
+  font-family: 'Nothing You Could Do';
+  font-size: 14px;
+}
+
+label {
+  margin-left: 200px;
+  font-size: 16px;
+  color: #595a6d;
+  text-anchor: middle;
+  font-family: 'Nothing You Could Do';
+}
+
+.dot:hover {
+  fill: #595a6d;
+}
