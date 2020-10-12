@@ -1,7 +1,7 @@
 const width = window.innerWidth * 0.7,
   height = window.innerHeight * 0.7,
-  margin = { top: 20, bottom: 20, left: 40, right: 20 },
-  radius = 4, time = 1500,
+  margin = { top: 20, bottom: 60, left: 60, right: 60 },
+  radius = 4, time = 3000,
 //  default_selection = "Dataset1";
   default_selection = "";
 
@@ -61,16 +61,16 @@ const selectElement = d3.select("#dropdown")
     .attr("width", width)
     .attr("height", height);
 
-  svg
-  .append("g")
-  .attr("class", "myX-axis")
-  .attr("transform", `translate(0,${height - margin.bottom})`)
-  .call(xAxis)
-  .append("text")
-  .attr("class", "axis-label")
-  .attr("x", "50%")
-  .attr("dy", "3em")
-  .text("Year");
+    svg // addition of the xAxis and its attributes
+    .append("g")
+    .attr("class", "myX-axis")
+    .attr("transform", `translate(0,${height - margin.bottom})`)
+    .call(xAxis)
+    .append("text")
+    .attr("class", "axis-label")
+    .attr("x", "50%")
+    .attr("dy", "3em")
+    .text("Years");
   
   svg //addition of the yAxis and its attributes
   .append("g")
@@ -170,7 +170,7 @@ function draw() {
       enter => 
         enter
           .append("path")
-          //.attr("stroke", "#d7a29e")
+          //.attr("stroke", "#d7a29e")  Creates a line on peaks - but thought it looked cool without.
           //.attr("stroke-width", 1)
           .style("fill", "url(#areaGradient)"),
         update => update, 
