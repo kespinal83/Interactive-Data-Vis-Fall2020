@@ -75,7 +75,7 @@ svg = d3
         .attr("fill", "transparent")
         .style("opacity",0.0)
         .style("stroke", "white")
-        .attr("r", 3)
+        .attr("r", 2)
         .transition()
           .attr("fill", "red")
           .style("opacity",0.2)
