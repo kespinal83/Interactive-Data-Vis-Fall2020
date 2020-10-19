@@ -2,12 +2,24 @@
   <head>
     <meta charset="utf-8">
     <title>Interactive Data Visualization Tutorial</title>
+    <link href="https://fonts.googleapis.com/css?family=Bebas Neue" rel="stylesheet">
     <link rel="stylesheet" href="./style.css">
   </head>
   <body>
-    Welcome to Interactive Data Visualization Tutorials
+    <header>
+      <table style = "width:100%">
+        <tr>
+          <th><h2>Fatalities by Law Enforcement</h2></th>
+          <th><h3>Date Range: 2015 - 2020 4.9% (279 Incidents) Excluded due to missing Geospatial Data</h3></th>
+        </tr>
+      </table>
+    </header>
+    <div id="hover-content"></div>
     <div id="d3-container"> </div>
+    <br>
+    <p>Source: Washingtonpost. “Washingtonpost/Data-Police-Shootings.” GitHub, github.com/washingtonpost/data-police-shootings.</p>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/2.0.2/anime.min.js"></script>
     <script src="../lib/d3.js"></script>
-    <script src="main.js"></script>
+    <script src="./main.js"></script>
   </body>
 </html>
