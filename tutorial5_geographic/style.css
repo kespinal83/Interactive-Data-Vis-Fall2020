@@ -3,6 +3,8 @@ html {
     background-size: cover;
     height: 100%;
     overflow: hidden;
+    margin-left: 80px;
+    margin-right: 80px;
   }
 
   body {

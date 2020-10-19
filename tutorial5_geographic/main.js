@@ -53,6 +53,7 @@ svg = d3
 
 // Fonts
 
+
     svg //draw the USofA
     .selectAll(".state")
     .data(state.geojson.features)
@@ -71,8 +72,8 @@ svg = d3
     .join(
       enter => enter
         .append("circle")
-        .attr("fill", "blue")
-        .style("opacity",0.2)
+        .attr("fill", "transparent")
+        .style("opacity",0.0)
         .style("stroke", "white")
         .attr("r", 3)
         .transition()
@@ -84,7 +85,7 @@ svg = d3
           .attr("cy",function(d) { return projection(d.geometry.coordinates)[1]})
         .call(enter => enter),
           update => update.call(update => update),
-          exit => exit.call(exit => exit
+          exit => exit.call(exit => exit)
           .remove()
         
     .on("mouseover",function(d) {
@@ -104,7 +105,7 @@ svg = d3
         state.hover["longitude"] = proj[0];
         state.hover["latitude"] = proj[1];
       draw();
-    })),)
+    })),
   
     draw();
   }
