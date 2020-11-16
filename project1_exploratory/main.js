@@ -2,7 +2,7 @@ const width = 1000;
 const height = 800;
 const config = {
   speed: 0.01,
-  verticalTilt: -15,
+  verticalTilt: -35,
   horizontalTilt: 0
   }
 
