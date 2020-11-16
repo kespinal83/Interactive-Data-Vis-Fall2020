@@ -53,7 +53,6 @@ svg = d3
 
 // Fonts
 
-
     svg //draw the USofA
     .selectAll(".state")
     .data(state.geojson.features)
