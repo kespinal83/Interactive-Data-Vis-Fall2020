@@ -1,17 +1,21 @@
-const width = 1000;
-const height = 800;
-const config = {
+//const width = 1000;
+//const height = 800;
+const width = window.innerWidth * 0.7,
+  height = window.innerHeight * 0.7,
+  margin = { top: 20, bottom: 60, left: 60, right: 60 },
+  config = {
   speed: 0.01,
   verticalTilt: -35,
   horizontalTilt: 0
   }
 
 let locations = [];
+
 const svg = d3
  .select('svg')
  .attr('width', width)
  .attr('height', height);
-  
+
 const markerGroup = svg.append('g');
 const projection = d3.geoOrthographic();
 const initialScale = projection.scale();
@@ -94,3 +98,4 @@ function drawMarkers() {
         this.parentNode.appendChild(this);
         });
 }
+

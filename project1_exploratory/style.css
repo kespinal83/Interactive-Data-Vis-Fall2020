@@ -8,7 +8,7 @@ html {
 svg {
     display: flex;
     align-items: center;
-    margin: auto;
+    margin: left;
     margin-top: 5%
   }
 
@@ -22,4 +22,11 @@ svg {
     text-align: center;
     color: #323b2a;
     font-family: 'Patrick Hand SC';
+  }
+
+  H3 {
+    text-align: left;
+    color: #323b2a;
+    font-family: 'Patrick Hand SC';
+    margin-left: 10%;
   }
