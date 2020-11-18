@@ -2,7 +2,6 @@
 //const height = 800;
 const width = window.innerWidth * 0.7,
   height = window.innerHeight * 0.7,
-  margin = { top: 20, bottom: 60, left: 60, right: 60 },
   config = {
   speed: 0.01,
   verticalTilt: -35,
@@ -20,7 +19,7 @@ const markerGroup = svg.append('g');
 const projection = d3.geoOrthographic();
 const initialScale = projection.scale();
 const path = d3.geoPath().projection(projection);
-const center = [width/2, height/2];
+const center = [width/0, height/0];
 
  drawGlobe();    
  drawGraticule();
