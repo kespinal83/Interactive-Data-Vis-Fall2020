@@ -1,7 +1,5 @@
-//const width = 1000;
-//const height = 800;
-const width = window.outerWidth * 0.7,
-  height = window.outerHeight * 0.7,
+const width = 1000;
+const height = 800;
   config = {
   speed: 0.01,
   verticalTilt: -35,
