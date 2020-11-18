@@ -19,7 +19,7 @@ const markerGroup = svg.append('g');
 const projection = d3.geoOrthographic();
 const initialScale = projection.scale();
 const path = d3.geoPath().projection(projection);
-const center = [width/0, height/0];
+const center = [width/2, height/2];
 
  drawGlobe();    
  drawGraticule();
