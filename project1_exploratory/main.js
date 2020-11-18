@@ -1,5 +1,5 @@
-const width = 1000;
-const height = 800;
+const width = 600;
+const height = 600;
   config = {
   speed: 0.01,
   verticalTilt: -35,
