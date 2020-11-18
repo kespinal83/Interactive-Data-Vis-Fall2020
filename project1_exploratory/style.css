@@ -8,7 +8,7 @@ html {
 svg {
     display: flex;
     align-items: center;
-    margin: left;
+    margin: auto;
   }
 
   H1 {
