@@ -1,4 +1,4 @@
-const width = 1000;
+const width = 800;
 const height = 600;
   config = {
   speed: 0.01,
