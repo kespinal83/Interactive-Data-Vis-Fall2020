@@ -50,6 +50,13 @@ svg {
   min-height: 100px;
 }
 
+.axis-label {
+  font-size: 16px;
+  fill: whitesmoke;
+  text-anchor: middle;
+  font-family: 'Days One';
+}
+
 path.state {
   stroke: #ebe6e0;
   shape-rendering: crispEdges;
