@@ -1,0 +1,156 @@
+Analysis,Year,Mean
+Acura NSX,1990,0.4
+Acura NSX,1991,0.32
+Acura NSX,1992,0.3
+Acura NSX,1993,0.41
+Acura NSX,1994,0.48
+Acura NSX,1995,0.52
+Acura NSX,1996,0.51
+Acura NSX,1997,0.53
+Acura NSX,1998,0.4
+Acura NSX,1999,0.32
+Acura NSX,2000,0.57
+Acura NSX,2001,0.44
+Acura NSX,2002,0.47
+Acura NSX,2003,0.5
+Acura NSX,2004,0.51
+Acura NSX,2005,0.41
+Acura NSX,2006,0.35
+Acura NSX,2007,0.31
+Acura NSX,2008,0.48
+Acura NSX,2009,0.36
+Acura NSX,2010,0.29
+Acura NSX,2011,0.35
+Acura NSX,2012,0.47
+Acura NSX,2013,0.55
+Acura NSX,2014,0.64
+Acura NSX,2015,0.48
+Acura NSX,2016,0.43
+Acura NSX,2017,0.6
+Acura NSX,2018,0.63
+Acura NSX,2019,0.67
+Acura NSX,2020,0.62
+Mazda RX7,1990,0.64
+Mazda RX7,1991,0.55
+Mazda RX7,1992,0.54
+Mazda RX7,1993,0.36
+Mazda RX7,1994,0.31
+Mazda RX7,1995,0.54
+Mazda RX7,1996,0.6
+Mazda RX7,1997,0.46
+Mazda RX7,1998,0.42
+Mazda RX7,1999,0.47
+Mazda RX7,2000,0.41
+Mazda RX7,2001,0.48
+Mazda RX7,2002,0.44
+Mazda RX7,2003,0.48
+Mazda RX7,2004,0.41
+Mazda RX7,2005,0.3
+Mazda RX7,2006,0.41
+Mazda RX7,2007,0.41
+Mazda RX7,2008,0.56
+Mazda RX7,2009,0.35
+Mazda RX7,2010,0.29
+Mazda RX7,2011,0.37
+Mazda RX7,2012,0.49
+Mazda RX7,2013,0.34
+Mazda RX7,2014,0.4
+Mazda RX7,2015,0.35
+Mazda RX7,2016,0.23
+Mazda RX7,2017,0.23
+Mazda RX7,2018,0.23
+Mazda RX7,2019,0.28
+Mazda RX7,2020,0.32
+Nissan Skyline R34,1990,0.29
+Nissan Skyline R34,1991,0.33
+Nissan Skyline R34,1992,0.45
+Nissan Skyline R34,1993,0.32
+Nissan Skyline R34,1994,0.24
+Nissan Skyline R34,1995,0.25
+Nissan Skyline R34,1996,0.29
+Nissan Skyline R34,1997,0.29
+Nissan Skyline R34,1998,0.38
+Nissan Skyline R34,1999,0.27
+Nissan Skyline R34,2000,0.21
+Nissan Skyline R34,2001,0.28
+Nissan Skyline R34,2002,0.33
+Nissan Skyline R34,2003,0.35
+Nissan Skyline R34,2004,0.4
+Nissan Skyline R34,2005,0.24
+Nissan Skyline R34,2006,0.27
+Nissan Skyline R34,2007,0.23
+Nissan Skyline R34,2008,0.22
+Nissan Skyline R34,2009,0.25
+Nissan Skyline R34,2010,0.23
+Nissan Skyline R34,2011,0.26
+Nissan Skyline R34,2012,0.4
+Nissan Skyline R34,2013,0.3
+Nissan Skyline R34,2014,0.25
+Nissan Skyline R34,2015,0.22
+Nissan Skyline R34,2016,0.27
+Nissan Skyline R34,2017,0.27
+Nissan Skyline R34,2018,0.22
+Nissan Skyline R34,2019,0.29
+Nissan Skyline R34,2020,0.21
+Toyota Supra,1990,0.35
+Toyota Supra,1991,0.27
+Toyota Supra,1992,0.22
+Toyota Supra,1993,0.31
+Toyota Supra,1994,0.38
+Toyota Supra,1995,0.27
+Toyota Supra,1996,0.37
+Toyota Supra,1997,0.47
+Toyota Supra,1998,0.53
+Toyota Supra,1999,0.33
+Toyota Supra,2000,0.5
+Toyota Supra,2001,0.35
+Toyota Supra,2002,0.32
+Toyota Supra,2003,0.39
+Toyota Supra,2004,0.53
+Toyota Supra,2005,0.61
+Toyota Supra,2006,0.49
+Toyota Supra,2007,0.64
+Toyota Supra,2008,0.63
+Toyota Supra,2009,0.43
+Toyota Supra,2010,0.44
+Toyota Supra,2011,0.52
+Toyota Supra,2012,0.66
+Toyota Supra,2013,0.55
+Toyota Supra,2014,0.68
+Toyota Supra,2015,0.84
+Toyota Supra,2016,0.62
+Toyota Supra,2017,0.62
+Toyota Supra,2018,0.75
+Toyota Supra,2019,0.83
+Toyota Supra,2020,0.82
+Nissan Sylvia S15,1990,0.75
+Nissan Sylvia S15,1991,0.89
+Nissan Sylvia S15,1992,0.83
+Nissan Sylvia S15,1993,0.86
+Nissan Sylvia S15,1994,0.74
+Nissan Sylvia S15,1995,0.84
+Nissan Sylvia S15,1996,0.91
+Nissan Sylvia S15,1997,0.8
+Nissan Sylvia S15,1998,0.83
+Nissan Sylvia S15,1999,0.85
+Nissan Sylvia S15,2000,0.94
+Nissan Sylvia S15,2001,1.07
+Nissan Sylvia S15,2002,1.19
+Nissan Sylvia S15,2003,14.6944
+Nissan Sylvia S15,2004,8.0384
+Nissan Sylvia S15,2005,8.2944
+Nissan Sylvia S15,2006,18.2272
+Nissan Sylvia S15,2007,25.7152
+Nissan Sylvia S15,2008,27.2
+Nissan Sylvia S15,2009,25.6384
+Nissan Sylvia S15,2010,31.8592
+Nissan Sylvia S15,2011,18.8288
+Nissan Sylvia S15,2012,12.5696
+Nissan Sylvia S15,2013,41.216
+Nissan Sylvia S15,2014,32.4096
+Nissan Sylvia S15,2015,39.1936
+Nissan Sylvia S15,2016,41.1136
+Nissan Sylvia S15,2017,35.9424
+Nissan Sylvia S15,2018,29.312
+Nissan Sylvia S15,2019,12.4672
+Nissan Sylvia S15,2020,15.6672
