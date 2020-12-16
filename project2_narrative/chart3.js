@@ -1,7 +1,7 @@
 export function chart3() {
   const width = window.innerWidth * 0.7,
   height = window.outerHeight * 0.7,
-  margin = { top: 20, bottom: 40, left: 60, right: 60 },
+  margin = { top: 30, bottom: 40, left: 60, right: 60 },
   radius = 4, time = 3000,
 //  default_selection = "Dataset1";
   default_selection = "";
