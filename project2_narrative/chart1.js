@@ -8,7 +8,7 @@ var config = {
     horizontalTilt: 0
     }
 
-var svg = d3.select("d3-container-1")
+var svg = d3.select("#d3-container-1")
   .append("svg")
   .attr("preserveAspectRatio", "xMinYMin meet")
   .style("background-color","#transparent")
